@@ -9,12 +9,8 @@ namespace CubicSnake.Core
             Height = height;
             Width = width;
             Depth = depth;
-
-            var h = Convert.ToInt32(height);
-            var w = Convert.ToInt32(width);
-            var d = Convert.ToInt32(depth);
             
-            Cells = new bool[h, w, d];
+            Cells = new bool[height, width, depth];
         }
         
         public int Height { get; }
