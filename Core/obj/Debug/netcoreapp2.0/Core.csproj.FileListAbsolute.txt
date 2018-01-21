@@ -1,8 +1,0 @@
-/Users/otaman/RiderProjects/CubicSnake/Core/bin/Debug/netcoreapp2.0/Core.deps.json
-/Users/otaman/RiderProjects/CubicSnake/Core/bin/Debug/netcoreapp2.0/Core.dll
-/Users/otaman/RiderProjects/CubicSnake/Core/bin/Debug/netcoreapp2.0/Core.pdb
-/Users/otaman/RiderProjects/CubicSnake/Core/obj/Debug/netcoreapp2.0/Core.csprojResolveAssemblyReference.cache
-/Users/otaman/RiderProjects/CubicSnake/Core/obj/Debug/netcoreapp2.0/Core.AssemblyInfoInputs.cache
-/Users/otaman/RiderProjects/CubicSnake/Core/obj/Debug/netcoreapp2.0/Core.AssemblyInfo.cs
-/Users/otaman/RiderProjects/CubicSnake/Core/obj/Debug/netcoreapp2.0/Core.dll
-/Users/otaman/RiderProjects/CubicSnake/Core/obj/Debug/netcoreapp2.0/Core.pdb
