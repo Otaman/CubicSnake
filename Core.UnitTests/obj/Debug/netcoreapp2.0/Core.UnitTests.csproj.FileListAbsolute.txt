@@ -11,3 +11,6 @@
 /Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.AssemblyInfo.cs
 /Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.dll
 /Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.pdb
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/Core.dll
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/Core.pdb
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.csproj.CoreCompileInputs.cache

@@ -17,6 +17,7 @@
             </e>
           </e>
         </e>
+        <e p="Point.cs" t="Include" />
       </e>
       <e p="Core.UnitTests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -29,6 +30,7 @@
             </e>
           </e>
         </e>
+        <e p="PointTests.cs" t="Include" />
       </e>
       <e p="CubicSnake.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
