@@ -1,0 +1,13 @@
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/Core.UnitTests.deps.json
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/Core.UnitTests.runtimeconfig.json
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/Core.UnitTests.runtimeconfig.dev.json
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/Core.UnitTests.dll
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/bin/Debug/netcoreapp2.0/Core.UnitTests.pdb
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.csprojResolveAssemblyReference.cache
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.AssemblyInfoInputs.cache
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.AssemblyInfo.cs
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.dll
+/Users/otaman/RiderProjects/CubicSnake/Core.UnitTests/obj/Debug/netcoreapp2.0/Core.UnitTests.pdb
