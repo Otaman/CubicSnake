@@ -25,5 +25,19 @@
         {
             return !(p1 == p2);
         }
+        
+        public Point Rotate(Segment axcis, int angle)
+        {
+            LinearAlgebra.ValidateAngle(angle);
+
+            var vector = LinearAlgebra.GetVector(axcis);
+            var rotationMatrix = LinearAlgebra.GetRotationMatrix(vector, angle);
+
+            var translatedPoint = LinearAlgebra.Translate(this, LinearAlgebra.Reflect(axcis.Tail));
+            var rotatedPoint = LinearAlgebra.Rotate(translatedPoint, rotationMatrix);
+            var retranslatedPoint = LinearAlgebra.Translate(rotatedPoint, axcis.Tail);
+
+            return retranslatedPoint;
+        }
     }
 }
