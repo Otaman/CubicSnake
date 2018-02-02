@@ -10,7 +10,7 @@ namespace CubicSnake.Core
             Width = width;
             Depth = depth;
             
-            Cells = new bool[height, width, depth];
+            Cells = new bool[width, height, depth];
         }
         
         public int Height { get; }
@@ -38,8 +38,8 @@ namespace CubicSnake.Core
 
         public bool FitsInCells(Point point)
         {
-            return point.X >= 0 && point.X < Height
-                && point.Y >= 0 && point.Y < Width
+            return point.X >= 0 && point.X < Width
+                && point.Y >= 0 && point.Y < Height
                 && point.Z >= 0 && point.Z < Depth;
         }
 

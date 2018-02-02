@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace CubicSnake.Core
 {
     /// <summary>
     /// Segment is straight line between two points with direction from tail to head
     /// </summary>
+    [DebuggerDisplay("[T{Tail}-H{Head}]")]
     public struct Segment
     {
         public Segment(Point tail, Point head)
@@ -29,7 +31,23 @@ namespace CubicSnake.Core
 
         public Point[] GetPoints()
         {
-            throw new NotImplementedException();
+            var difference = LinearAlgebra.Translate(Head, LinearAlgebra.Reflect(Tail));
+            var distance = Math.Abs(difference.X) + Math.Abs(difference.Y) + Math.Abs(difference.Z);
+            
+            var normalizedDifference = new Point(difference.X/distance, difference.Y/distance, difference.Z/distance);
+
+            var result = new Point[distance+1];
+            result[0] = Head;
+            result[result.Length - 1] = Tail;
+
+            var step = LinearAlgebra.Reflect(normalizedDifference); //inverted difference for going from head to tail
+
+            for (int i = 1; i < result.Length-1; i++)
+            {
+                result[i] = LinearAlgebra.Translate(result[i - 1], step);
+            }
+
+            return result;
         }
     }
 }
