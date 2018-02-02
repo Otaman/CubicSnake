@@ -26,5 +26,10 @@ namespace CubicSnake.Core
 
             return new Segment(tail, head);
         }
+
+        public Point[] GetPoints()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

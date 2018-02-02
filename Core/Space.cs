@@ -42,5 +42,11 @@ namespace CubicSnake.Core
                 && point.Y >= 0 && point.Y < Width
                 && point.Z >= 0 && point.Z < Depth;
         }
+
+        public void Remove(Point point)
+        {
+            if (FitsInCells(point))
+                Cells[point.X, point.Y, point.Z] = false;
+        }
     }
 }
