@@ -1,6 +1,9 @@
-﻿namespace CubicSnake.Core
+﻿using System;
+using System.Linq;
+
+namespace CubicSnake.Core
 {
-    public class Figure
+    public class Figure : IEquatable<Figure>
     {
         public Figure(Segment[] segments)
         {
@@ -19,7 +22,7 @@
             return FitSegmentsInSpace(space, previousSegment, 0);
         }
 
-        public bool FitSegmentsInSpace(Space space, Segment previousSegment, int indexOfCurrentSegment)
+        private bool FitSegmentsInSpace(Space space, Segment previousSegment, int indexOfCurrentSegment)
         {
             if (indexOfCurrentSegment >= Segments.Length)
                 return true;
@@ -86,6 +89,26 @@
             }
 
             return true;
+        }
+
+        public bool Equals(Figure other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Segments.SequenceEqual(other.Segments);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Figure) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (Segments != null ? Segments.GetHashCode() : 0);
         }
     }
 }
