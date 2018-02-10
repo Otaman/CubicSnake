@@ -1,10 +1,16 @@
-﻿namespace CubicSnake.Core
+﻿using System;
+using System.Diagnostics;
+
+namespace CubicSnake.Core
 {
     /// <summary>
     /// Point represents single point in 3d space
     /// </summary>
-    public struct Point
+    [DebuggerDisplay("({X},{Y},{Z})")]
+    public struct Point : I3DRotatable<Point>, I3DTranslatable<Point>
     {
+        public static Point Zero = new Point(0, 0, 0);
+        
         public Point(int x, int y, int z)
         {
             X = x;
@@ -31,6 +37,14 @@
             LinearAlgebra.ValidateAngle(angle);
 
             var vector = LinearAlgebra.GetVector(axcis);
+            
+            
+            var normalizationKoefficient = Math.Abs(vector[0]) + Math.Abs(vector[1]) + Math.Abs(vector[2]);
+
+            vector[0] /= normalizationKoefficient;
+            vector[1] /= normalizationKoefficient;
+            vector[2] /= normalizationKoefficient;
+            
             var rotationMatrix = LinearAlgebra.GetRotationMatrix(vector, angle);
 
             var translatedPoint = LinearAlgebra.Translate(this, LinearAlgebra.Reflect(axcis.Tail));
@@ -38,6 +52,16 @@
             var retranslatedPoint = LinearAlgebra.Translate(rotatedPoint, axcis.Tail);
 
             return retranslatedPoint;
+        }
+
+        public Point Translate(Point point)
+        {
+            return LinearAlgebra.Translate(this, point);
+        }
+
+        public override string ToString()
+        {
+            return $"({X},{Y},{Z})";
         }
     }
 }
