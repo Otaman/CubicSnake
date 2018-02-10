@@ -7,7 +7,7 @@ namespace CubicSnake.Core
     /// Point represents single point in 3d space
     /// </summary>
     [DebuggerDisplay("({X},{Y},{Z})")]
-    public struct Point
+    public struct Point : I3DRotatable<Point>, I3DTranslatable<Point>
     {
         public static Point Zero = new Point(0, 0, 0);
         
@@ -52,6 +52,16 @@ namespace CubicSnake.Core
             var retranslatedPoint = LinearAlgebra.Translate(rotatedPoint, axcis.Tail);
 
             return retranslatedPoint;
+        }
+
+        public Point Translate(Point point)
+        {
+            return LinearAlgebra.Translate(this, point);
+        }
+
+        public override string ToString()
+        {
+            return $"({X},{Y},{Z})";
         }
     }
 }

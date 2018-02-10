@@ -1,4 +1,11 @@
-﻿using Xunit;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Xunit;
 
 namespace CubicSnake.Core.UnitTests
 {
@@ -63,6 +70,66 @@ namespace CubicSnake.Core.UnitTests
             });
             
             var result = figure.FitInSpace(space);
+            
+            Assert.True(result);
+        }
+        
+        [Fact]
+        public void FitInSpace_MishasFigure_FitsIn444Space()
+        {
+            var space = new Space(4, 4, 4);
+            int[] segmentLengths = {4,2,4,2,2,2,2,3,2,2,2,2,2,3,2,4,2,3,3,4,2,3,2,2,2,2,2,2,2,2,2,4,2,4,2,4,4,4,3};
+            segmentLengths = segmentLengths.Reverse().ToArray();
+            var figure = new FigureFactory().GenerateFromSegmentLengthsSequence(segmentLengths);
+            figure.Translate(new Point(1, 0, 0));
+            
+            var sw = new Stopwatch();
+            sw.Start();
+            
+            var result = figure.FitInSpace(space);
+
+            var miliseconds = sw.ElapsedMilliseconds;
+            var valid = figure.IsValid();
+
+            var spaceIsFull = true;
+            for (int i = 0; i < space.Cells.GetLength(0); i++)
+            {
+                for (int j = 0; j < space.Cells.GetLength(1); j++)
+                {
+                    for (int k = 0; k < space.Cells.GetLength(2); k++)
+                    {
+                        spaceIsFull = spaceIsFull && space.Cells[i, j, k];
+                    }
+                }
+            }
+            
+            var maxPossibleCombinations = BigInteger.Pow(new BigInteger(4), segmentLengths.Length) * 4 * 3;
+            double efectiveness = Math.Exp(BigInteger.Log(figure.Iterations) - BigInteger.Log(maxPossibleCombinations));
+
+            var sb = new StringBuilder();
+            sb.AppendLine("Figure:");
+            for (int i = 0; i < figure.Segments.Length; i++)
+            {
+                sb.AppendLine(figure.Segments[i].ToString());
+            }
+
+            var json = JsonConvert.SerializeObject(figure, new JsonSerializerSettings()
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            });
+            sb.AppendLine(json);
+            
+            Debug.WriteLine($"Space is full: {spaceIsFull}");
+            Debug.WriteLine($"Figure is valid: {valid}");
+            Debug.WriteLine($"Figure fits in space: {result}");
+            Debug.WriteLine($"Total single segment rotations: {figure.SingleSegmentRotations}");
+            Debug.WriteLine($"Max depth of recursive rotations: {figure.Depth}");
+            Debug.WriteLine($"Count of FitSegmentsInSpace method calls: {figure.Iterations}");
+            Debug.WriteLine($"Max count of possible FitSegmentsInSpace method calls: {maxPossibleCombinations}");
+            Debug.WriteLine($"Optimisation (best = 1.0): {1 - efectiveness}");
+            Debug.WriteLine($"Elapsed ms: {miliseconds}");
+            Debug.WriteLine("---------------");
+            Debug.WriteLine(sb.ToString());
             
             Assert.True(result);
         }

@@ -7,7 +7,7 @@ namespace CubicSnake.Core
     /// Segment is straight line between two points with direction from tail to head
     /// </summary>
     [DebuggerDisplay("[T{Tail}-H{Head}]")]
-    public struct Segment
+    public struct Segment : I3DRotatable<Segment>, I3DTranslatable<Segment>
     {
         public Segment(Point tail, Point head)
         {
@@ -48,6 +48,16 @@ namespace CubicSnake.Core
             }
 
             return result;
+        }
+
+        public Segment Translate(Point point)
+        {
+            return new Segment(Tail.Translate(point), Head.Translate(point));
+        }
+
+        public override string ToString()
+        {
+            return $"[{Tail}-{Head}]";
         }
     }
 }
